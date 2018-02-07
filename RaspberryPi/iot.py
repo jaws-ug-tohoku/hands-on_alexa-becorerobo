@@ -1,71 +1,83 @@
 #!/usr/bin/python3
-# coding: UTF-8
+# -*- coding: utf-8 -*-
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-import time
 import os
 
-# Custom MQTT message callback
-#1秒ごとにsubし続けているときにトピックからなにかしら受け取ったら呼ばれる関数
-def customCallback(client, userdata, message):
-    topic = str(message.topic)
-    print(topic)
-    if(topic == "robot/walk"):
-        walkIntent()
-    elif(topic == "robot/wink"):
-        winkIntent()
-    elif(topic == "robot/light"):
-        lightIntent()
-    else:
-        print("none")
 
-def walkIntent():
-    #前進するBLEの処理
-    print("walk")
-    cmd = "bash /home/pi/motion.bash %s %s" % (bcoreMac,"walk")
-    os.system(cmd)
+class AwsIotClient:
+    # Initialize
+    def __init__(self):
+        self.host = os.getenv(
+            'ENDPOINT',
+            'xxxxxxxxxxxxxxxx.ap-northeast-1.amazonaws.com'
+        )
+        self.bcoreMac = os.getenv(
+            'BCORE_MAC',
+            'xx:xx:xx:xx:xx:xx'
+        )
+        self.rootCAPath = "/home/pi/root-CA.crt"
+        self.certificatePath = "/home/pi/certificate.pem.crt"
+        self.privateKeyPath = "/home/pi/private.pem.key"
+        self.clientId = "MyRaspberryPi"
+        self.topic = "robot/+"
+        self.cmd = '/home/pi/motion.bash'
+        self.myAWSIoTMQTTClient = AWSIoTMQTTClient(self.clientId)
+        self.myAWSIoTMQTTClient.configureEndpoint(self.host, 8883)
+        self.myAWSIoTMQTTClient.configureCredentials(
+            self.rootCAPath,
+            self.privateKeyPath,
+            self.certificatePath
+        )
+        self.myAWSIoTMQTTClient.configureConnectDisconnectTimeout(30)  # 30 sec
+        self.myAWSIoTMQTTClient.configureMQTTOperationTimeout(30)  # 30 sec
+        self.myAWSIoTMQTTClient.configureAutoReconnectBackoffTime(1, 128, 20)
 
-def winkIntent():
-    #ウィンクするBLEの処理
-    print("wink")
-    cmd = "bash /home/pi/motion.bash %s %s" % (bcoreMac,"wink")
-    os.system(cmd)
+    # Connect and subscribe to AWS IoT
+    # AWS_IoTへ接続
+    def connect(self):
+        print("connect")
+        self.myAWSIoTMQTTClient.connect()
 
-def lightIntent():
-    #目を光らせるBLEの処理
-    print("light")
-    cmd = "bash /home/pi/motion.bash %s %s" % (bcoreMac,"light")
-    os.system(cmd)
+    # Custom MQTT message callback
+    # 1秒ごとにsubし続けているときにトピックからなにかしら受け取ったら呼ばれる関数
+    def customCallback(self, client, userdata, message):
+        topic = str(message.topic)
+        print(topic)
+        if(topic == "robot/walk"):
+            self.walkIntent()
+        elif(topic == "robot/wink"):
+            self.winkIntent()
+        elif(topic == "robot/light"):
+            self.lightIntent()
+        else:
+            print("none")
+
+    # 前進するBLEの処理
+    def walkIntent(self):
+        print("walk")
+        cmd = "bash %s %s %s" % (self.cmd, self.bcoreMac, "walk")
+        os.system(cmd)
+
+    # ウィンクするBLEの処理
+    def winkIntent(self):
+        print("wink")
+        cmd = "bash %s %s %s" % (self.cmd, self.bcoreMac, "wink")
+        os.system(cmd)
+
+    # 目を光らせるBLEの処理
+    def lightIntent(self):
+        print("light")
+        cmd = "bash %s %s %s" % (self.cmd, self.bcoreMac, "light")
+        os.system(cmd)
+
+    # 1秒ごとにサブスクライブし続ける（ctrl+Cで終了する）
+    def subscribe(self):
+        while True:
+            self.myAWSIoTMQTTClient.subscribe(self.topic, 1, self.customCallback)
 
 
-host = "xxxxxxxxxxxxxxxx.ap-northeast-1.amazonaws.com"
-rootCAPath = "/home/pi/root-CA.crt"
-certificatePath = "/home/pi/certificate.pem.crt"
-privateKeyPath = "/home/pi/private.pem.key"
-clientId = "MyRaspberryPi"
-bcoreMac = "xx:xx:xx:xx:xx:xx"
-
-#robot/〜〜〜となるトピックを全て受信したいので、「+」を指定
-topic = "robot/+"
-
-# Init AWSIoTMQTTClient
-print("init")
-myAWSIoTMQTTClient = None
-myAWSIoTMQTTClient = AWSIoTMQTTClient(clientId)
-myAWSIoTMQTTClient.configureEndpoint(host, 8883)
-myAWSIoTMQTTClient.configureCredentials(rootCAPath, privateKeyPath, certificatePath)
-
-myAWSIoTMQTTClient.configureConnectDisconnectTimeout(30)  # 30 sec
-myAWSIoTMQTTClient.configureMQTTOperationTimeout(30)  # 30 sec
-myAWSIoTMQTTClient.configureAutoReconnectBackoffTime(1, 128, 20)
-
-# Connect and subscribe to AWS IoT
-#AWS_IoTへ接続
-myAWSIoTMQTTClient.connect()
-print("connect")
-
-#1秒ごとにサブスクライブし続ける（ctrl+Cで終了する）
-print("subscribe loop start")
-while True:
-    myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
-    time.sleep(1)
+if __name__ == '__main__':
+    myAWSIoTMQTTClient = AwsIotClient()
+    myAWSIoTMQTTClient.connect()
+    myAWSIoTMQTTClient.subscribe()
