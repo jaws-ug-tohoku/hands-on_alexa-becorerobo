@@ -79,13 +79,7 @@ class AwsIotClient:
             time.sleep(1)
 
 
-# Connect and subscribe to AWS IoT
-#AWS_IoTへ接続
-myAWSIoTMQTTClient.connect()
-print("connect")
-
-#1秒ごとにサブスクライブし続ける（ctrl+Cで終了する）
-print("subscribe loop start")
-while True:
-    myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
-    time.sleep(1)
+if __name__ == '__main__':
+    myAWSIoTMQTTClient = AwsIotClient()
+    myAWSIoTMQTTClient.connect()
+    myAWSIoTMQTTClient.subscribe()
