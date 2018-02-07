@@ -1,0 +1,11 @@
+walkIntent 歩いて
+walkIntent 前に進んで
+walkIntent 前進して
+walkIntent 動いて
+winkIntent ウィンクして
+winkIntent ウインクして
+winkIntent ウインクしてください
+winkIntent ウィンクしてください
+lightIntent 目を光らせて
+lightIntent 目よ光れ
+lightIntent 目が光って欲しい
