@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-import time
 import os
 
 
@@ -76,7 +75,6 @@ class AwsIotClient:
     def subscribe(self):
         while True:
             self.myAWSIoTMQTTClient.subscribe(self.topic, 1, self.customCallback)
-            time.sleep(1)
 
 
 if __name__ == '__main__':
