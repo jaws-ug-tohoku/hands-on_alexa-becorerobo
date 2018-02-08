@@ -29,15 +29,15 @@ AWSマネジメントコンソールへのログインを行います。
 
 以下のURLへアクセスし、右上の「コンソールへログイン」をクリックします。
 
-URL : https://aws.amazon.com/jp/  
+URL : https://aws.amazon.com/jp/<br><br><br>
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/2.png)
 
-アカウント情報を入力し、「サインイン」をクリックします。  
+アカウント情報を入力し、「サインイン」をクリックします。<br><br><br>
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/3.png)
 
-ログインが完了すると、画像のような画面になります。  
+ログインが完了すると、画像のような画面になります。<br><br><br>
 
 **画面最上部右側のリージョンが「東京」になっているか確認しましょう。なっていなければ「アジアパシフィック（東京）」に変更します。**
 
@@ -47,26 +47,26 @@ URL : https://aws.amazon.com/jp/
 
 Alexaの設定を行うために、Developerコンソール（開発者コンソール）へのログインも必要となります。
 前項のマネジメントコンソールとは異ります。
-そのためアカウントもAWSアカウントとは別にDeveloperアカウントというものが必要となります。  
+そのためアカウントもAWSアカウントとは別にDeveloperアカウントというものが必要となります。<br><br><br>
 
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/4.png)
 
-ブラウザの上部から新規でタブを開き、以下のURLへアクセスします。  
+ブラウザの上部から新規でタブを開き、以下のURLへアクセスします。<br><br><br>
 
 URL : https://developer.amazon.com/home.html
 
-アカウント情報を入力し、「ログイン」をクリックします。  
+アカウント情報を入力し、「ログイン」をクリックします。<br><br><br>
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/6.png)
 
 アカウントを持っていない場合は「AmazonDeveloperアカウントを作成」をクリックします。
 各項目を埋めたら「AmazonDeveloperアカウントを作成」をクリックします。
-その後も項目を入力し、アカウントを作成します。  
+その後も項目を入力し、アカウントを作成します。<br><br><br>
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/5.png)
 
-ログインが完了すると、画像のような画面になります。  
+ログインが完了すると、画像のような画面になります。<br><br><br>
 
 
 
@@ -78,12 +78,12 @@ URL : https://developer.amazon.com/home.html
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/1.png)
 
 Developerコンソールを開き、「Alexa」タブをクリックします。
-Alexa Skill Kitの「始める」をクリックします。  
+Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/2.png)
 
-右上の「新しいスキルを追加する」をクリックします。  
+右上の「新しいスキルを追加する」をクリックします。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/3.png)
 
@@ -94,14 +94,14 @@ Alexa Skill Kitの「始める」をクリックします。
 * 呼び出し名・・・・「ロボット」
 
 を入力及び選択し、「保存する」をクリックします。
-その他の項目は変更不要です。  
+その他の項目は変更不要です。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/4.png)
 
 保存されると画像のような画面になります。
 新たに表示された「アプリケーションID」を控えておきます。
 この値はLambdaの設定に必要です。
-その後、「次へ」をクリックします。（対話モデルの設定画面に移ります）  
+その後、「次へ」をクリックします。（対話モデルの設定画面に移ります）<br><br><br>
 
 
 
@@ -114,11 +114,11 @@ Alexa Skill Kitの「始める」をクリックします。
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/3.png)
 
-マネジメントコンソールを開き、「コンピューティング」から「Lambda」をクリックします。  
+マネジメントコンソールを開き、「コンピューティング」から「Lambda」をクリックします。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/1.png)
 
-「関数の作成」をクリックします。  
+「関数の作成」をクリックします。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/2.png)
 
@@ -128,7 +128,7 @@ Alexa Skill Kitの「始める」をクリックします。
 * ランタイム・・・Python3.6
 * ロール・・・・・カスタムロールの作成
 
-を入力及び選択します。  
+を入力及び選択します。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/3.png)
 
@@ -136,7 +136,7 @@ Alexa Skill Kitの「始める」をクリックします。
 * IAMロール・・・新しいIAMロールの作成
 * ロール名・・・・「alexaday2018_workshop」
 
-を入力及び選択し、「許可」をクリックします。  
+を入力及び選択し、「許可」をクリックします。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/4.png)
 
@@ -144,45 +144,46 @@ Alexa Skill Kitの「始める」をクリックします。
 「ロール」が「既存のロールを選択」が選ばれた状態になっています。
 * 既存のロール・・・「alexaday2018_workshop」
 
-と、直前に作成したIAMロールを選択し、右下の「関数の作成」をクリックします。  
+と、直前に作成したIAMロールを選択し、右下の「関数の作成」をクリックします。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/6.png)
 
 完了すると、Lambdaの設定画面へと移ります。
-Designer内の「トリガーの追加」から「Alexa Skill Kit」をクリックし、トリガーを追加します。  
+Designer内の「トリガーの追加」から「Alexa Skill Kit」をクリックし、トリガーを追加します。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/7.png)
 
 下にスクロールすると、「トリガーの設定」フィールドがあります。
 スキルID検証・・・・・・有効（推奨）
 アプリケーションID・・・Alexaの設定時に控えたアプリケーションID
-を入力及び選択したら、右下の「追加」をクリックします。  
+を入力及び選択したら、右下の「追加」をクリックします。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/8.png)
 
 追加されると画像のような画面になります。
-Designer内のLambda関数名をクリックし、さらに設定を進めていきます。  
+Designer内のLambda関数名をクリックし、さらに設定を進めていきます。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/9.png)
 
 下にスクロールすると、「関数コード」の設定フィールドがあります。
-「lambda_function.py」に記述されているコードを全て削除し、別紙の「lambda.py」の中身を全てコピー＆ペーストします。  
+「lambda_function.py」に記述されているコードを全て削除し、別紙の「lambda.py」の中身を全てコピー＆ペーストします。<br><br><br>
 
 **コード内で以下のように記述されている箇所は、Alexaスキルの設定（前編）の最後に控えたアプリケーションIDに値を変更してください。**
 ```python
 myAppID = ".........."
-```  
+```
+<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/10.png)
 
 念のためLambdaのスペックを上げておきたいので、さらに下にスクロールします。
-「基本設定」フィールドで、メモリを512MB、タイムアウトを10秒に変更します。  
+「基本設定」フィールドで、メモリを512MB、タイムアウトを10秒に変更します。<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/lambda/11.png)
 
 問題がなければ一番上までスクロールし、右上の「保存」をクリックします。
 保存が完了したら、保存ボタンの上にある「ARN」というテキストの「arn:aws:lambda:.....」を控えておきます。
-この値はAlexaスキルの設定（後編）で必要です。  
+この値はAlexaスキルの設定（後編）で必要です。<br><br><br>
 
 
 
@@ -191,16 +192,16 @@ myAppID = ".........."
 
 **Developerコンソールから設定を行います。**
 
-Lambdaの設定が完了したところで、再度Alexaの設定を進めていきます。  
+Lambdaの設定が完了したところで、再度Alexaの設定を進めていきます。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/5.png)
 
-Developerコンソールを開き、対話モデルの設定画面であることを確認します。  
+Developerコンソールを開き、対話モデルの設定画面であることを確認します。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/7.png)
 
 「インテントスキーマ」には「intentSchema.txt」の中身を全てコピー＆ペーストします。
-インテントスキーマは、インテント等の情報をまとめたjson形式の設定項目です。  
+インテントスキーマは、インテント等の情報をまとめたjson形式の設定項目です。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/6.png)
 
@@ -209,7 +210,7 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 その他の項目は変更不要です。
 
-入力ができたら一番下までスクロールし、「次へ」をクリックします。  
+入力ができたら一番下までスクロールし、「次へ」をクリックします。<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/8.png)
 
@@ -219,7 +220,7 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 その他の項目は変更不要です。
 
-完了したら一番左下の「保存」をクリックします。  
+完了したら一番左下の「保存」をクリックします。<br><br><br>
 
 
 
@@ -234,30 +235,30 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/1.png)
 
 マネジメントコンソールを開き、左上の「サービス」をクリックします。
-検索欄に「iot」と入力し、「AWS IoT」をクリックします。  
+検索欄に「iot」と入力し、「AWS IoT」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/2.png)
 
-画像のような画面になるので、左のリストから「管理」をクリックします。  
+画像のような画面になるので、左のリストから「管理」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/3.png)
 
-IoTデバイスの登録を行うため、右上の「作成」をクリックします。  
+IoTデバイスの登録を行うため、右上の「作成」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/4.png)
 
-「単一のモノを作成する」をクリックします。  
+「単一のモノを作成する」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/5.png)
 
 画像のような画面になるので、各項目の設定を行います。
 名前・・・任意（ここでは「myRaspberryPi3」としました。）
 その他の項目の値の変更は不要です。
-名前を入力したら、一番右下の「次へ」をクリックします。  
+名前を入力したら、一番右下の「次へ」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/6.png)
 
-証明書の作成をクリックします。  
+証明書の作成をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/7.png)
 
@@ -272,24 +273,24 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 
 また、「AWS IoT のルート CA」もダウンロードする必要があります。
 
-「AWS IoT のルート CA」の右の「ダウンロード」を右クリックし、「別名でリンク先を保存」をクリックし、ファイル名を「root-CA.crt」としてダウンロードします。  
+「AWS IoT のルート CA」の右の「ダウンロード」を右クリックし、「別名でリンク先を保存」をクリックし、ファイル名を「root-CA.crt」としてダウンロードします。<br><br><br>
 
 その後、**「有効化」をクリック**します。
 
-**ここでの証明書の有効化は忘れやすいポイントであるため、注意してください。**  
+**ここでの証明書の有効化は忘れやすいポイントであるため、注意してください。**<br><br><br>
 
-全て満たしたら「完了」をクリックします。  
+全て満たしたら「完了」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/8.png)
 
-完了すると、モノの一覧に追加されます。  
+完了すると、モノの一覧に追加されます。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/9.png)
 
 左のリストから「安全性」をクリックします。
 さらに下に現れる「ポリシー」をクリックします。
 「ポリシー」の一覧画面が表示されます。
-右上の「作成」からポリシーを追加します。  
+右上の「作成」からポリシーを追加します。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/10.png)
 
@@ -299,37 +300,37 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 * リソースARN・・・「*」
 * 効果・・・・・・・「許可」をチェック
 
-問題なければ右下の「作成」をクリックします。  
+問題なければ右下の「作成」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/11.png)
 
-完了すると、一覧画面に作成したものが追加されます。  
+完了すると、一覧画面に作成したものが追加されます。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/12.png)
 
-左のリストの「安全性」から「証明書」をクリックし、一覧から先ほど作成した証明書をクリックします。  
+左のリストの「安全性」から「証明書」をクリックし、一覧から先ほど作成した証明書をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/13.png)
 
-画面上部の右寄りに「アクション▼」という項目があるので、クリックし、「ポリシーのアタッチ」をクリックします。  
+画面上部の右寄りに「アクション▼」という項目があるので、クリックし、「ポリシーのアタッチ」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/14.png)
 
-画像のようなウィンドウが現れるので、先ほど作成したポリシーにチェックを入れ、「アタッチ」をクリックします。  
+画像のようなウィンドウが現れるので、先ほど作成したポリシーにチェックを入れ、「アタッチ」をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/15.png)
 
-リストから「ポリシー」をクリックすると、作成したポリシーが紐づけられていることが確認できます。  
+リストから「ポリシー」をクリックすると、作成したポリシーが紐づけられていることが確認できます。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/16.png)
 
-リストから「モノ」をクリックし、紐づいているモノ(myRaspberryPi3)をクリックします。  
+リストから「モノ」をクリックし、紐づいているモノ(myRaspberryPi3)をクリックします。<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/17.png)
 
 リストから「操作」をクリックすると、画像のような画面になります。
 エンドポイントである「〜〜〜〜〜.iot.ap-northeast-1.amazonaws.com」を控えておきます。
-この値はラズベリーパイの設定で必要になります。  
+この値はラズベリーパイの設定で必要になります。<br><br><br>
 
 
 
@@ -339,26 +340,26 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 
 **マネジメントコンソールから設定を行います。**
 
-**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**  
+**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
 ![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/19.png)
 
 左上の「サービス」をクリックし、検索欄に「iam」と入力します。
 下に表示される「IAM」をクリックします。
-（「セキュリティ、アイデンティティ、コンプライアンス」以下にも「IAM」という項目をクリックしてもOKです。）  
+（「セキュリティ、アイデンティティ、コンプライアンス」以下にも「IAM」という項目をクリックしてもOKです。）<br><br><br>
 
 ![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/20.png)
 
-左のリストから「ロール」を選択し、「alexaday2018_workshop」をクリックします。  
+左のリストから「ロール」を選択し、「alexaday2018_workshop」をクリックします。<br><br><br>
 
 ![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/21.png)
 
-画像のような画面になるので、「ポリシーのアタッチ」をクリックします。  
+画像のような画面になるので、「ポリシーのアタッチ」をクリックします。<br><br><br>
 
 ![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/22.png)
 
 検索欄に「iot」と入力し絞り込みを行います。
-「AWSIoTFullAccess」にチェックを入れ、右下の「ポリシーのアタッチ」をクリックします。  
+「AWSIoTFullAccess」にチェックを入れ、右下の「ポリシーのアタッチ」をクリックします。<br><br><br>
 
 
 
@@ -371,7 +372,7 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 * タイムゾーンの変更
 * staticIPの設定
 
-=>ここまでは事前に設定済み  
+=>ここまでは事前に設定済み<br><br><br>
 
 
 ## sshでログイン
@@ -381,7 +382,7 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 * 接続先：192.168.2.xx
 * パスワード：alexaday2018
 
-で接続します。  
+で接続します。<br><br><br>
 
 ## 必要パッケージのインストール
 ラズベリーパイで使用するパッケージ、pythonモジュールをインストールします。
@@ -493,7 +494,7 @@ WantedBy=network.target network-online.target rsyslog.service
 
 ---
 
-=>再起動後にactive (running)となっていれば自動起動に成功しています。  
+=>再起動後にactive (running)となっていれば自動起動に成功しています。<br><br><br>
 
 
 # echoの設定
