@@ -4,7 +4,9 @@ After=network.target network-online.target rsyslog.service
 
 [Service]
 Type=simple
-ExecStart=/home/pi/iot.py
+ExecStart=/home/pi/iot-bcore.py
+EnvironmentFile=/etc/default/iot-bcore
+
 
 [Install]
 WantedBy=network.target network-online.target rsyslog.service
