@@ -33,59 +33,43 @@ def on_intent(intent_request, session):
 		raise ValueError("Invalid intent")
 
 def walk_intents_flow(intent, session):
-
 	output_text = "前進ですね。わかりました。"
-
 	topic = 'robot/walk'
-
 	payload = {
 		"message": "walk!"
 	}
-
 	iot.publish(
 		topic = topic,
 		qos = 0,
 		payload = json.dumps(payload, ensure_ascii=False)
 	)
-
 	return resp_text_message(output_text)
 
 def wink_intents_flow(intent, session):
-
 	output_text = "ウィンクですね。わかりました。"
-
 	topic = 'robot/wink'
-	
 	payload = {
 		"message": "wink!"
 	}
-
 	iot.publish(
 		topic = topic,
 		qos = 0,
 		payload = json.dumps(payload, ensure_ascii=False)
 	)
-
 	return resp_text_message(output_text)
 
 def light_intents_flow(intent, session):
-
 	output_text = "目を光らせるですね。わかりました。"
-
 	topic = 'robot/light'
-	
 	payload = {
 		"message": "light!"
 	}
-
 	iot.publish(
 		topic = topic,
 		qos = 0,
 		payload = json.dumps(payload, ensure_ascii=False)
 	)
-
 	return resp_text_message(output_text)
-
 
 def resp_text_message(speech_message):
 	return {
