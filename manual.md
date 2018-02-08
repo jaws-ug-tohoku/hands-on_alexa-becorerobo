@@ -7,7 +7,7 @@ echoには音声アシスタントのAlexaが搭載されており、「スキ�
 
 echoに対して行った音声入力はLambdaで処理されます。
 
-Lambdaでの処理結果はAWSIoTを中継して実機であるRaspberryPiに届き、音声入力の種類に応じて、RaspberryPiがロボットに対してBlueTooth通信を用いてどんな動作をさせるかの命令をします。
+Lambdaでの処理結果はAWSIoTを中継して実機であるRaspberryPiに届き、音声入力の種類に応じて、RaspberryPiがロボットに対してBlueTooth通信を用いてどんな動作をさせるかの命令をします。<br><br><br>
 
 
 
@@ -15,15 +15,13 @@ Lambdaでの処理結果はAWSIoTを中継して実機であるRaspberryPiに届
 # 構成図
 ![全体図](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/%E5%85%A8%E4%BD%93%E5%9B%B3.png)
 
-
-
-
+<br><br><br>
 
 # ログイン
 ## マネジメントコンソール
 
 AWSマネジメントコンソールへのログインを行います。
-マネジメントコンソールではLambdaやAWSIoTなどAWSの各種サービスの設定等を行うことができます。
+マネジメントコンソールではLambdaやAWSIoTなどAWSの各種サービスの設定等を行うことができます。<br><br><br>
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/1.png)
 
@@ -40,7 +38,7 @@ URL : https://aws.amazon.com/jp/<br><br><br>
 ログインが完了すると、画像のような画面になります。<br><br><br>
 
 **画面最上部右側のリージョンが「東京」になっているか確認しましょう。なっていなければ「アジアパシフィック（東京）」に変更します。**
-
+<br><br><br>
 
 
 ## developerコンソール
@@ -52,7 +50,7 @@ Alexaの設定を行うために、Developerコンソール（開発者コンソ
 
 ![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/4.png)
 
-ブラウザの上部から新規でタブを開き、以下のURLへアクセスします。<br><br><br>
+ブラウザの上部から新規でタブを開き、以下のURLへアクセスします。
 
 URL : https://developer.amazon.com/home.html
 
@@ -73,7 +71,7 @@ URL : https://developer.amazon.com/home.html
 
 # Alexaスキルの設定（前編）
 
-**Developerコンソールから設定を行います。**
+**Developerコンソールから設定を行います。**<br><br><br>
 
 ![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/alexa/1.png)
 
@@ -110,7 +108,7 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 **マネジメントコンソールから設定を行います。**
 
-**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**
+**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
 ![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/login/3.png)
 
@@ -190,7 +188,7 @@ myAppID = ".........."
 
 # Alexaスキルの設定（後編）
 
-**Developerコンソールから設定を行います。**
+**Developerコンソールから設定を行います。**<br><br><br>
 
 Lambdaの設定が完了したところで、再度Alexaの設定を進めていきます。<br><br><br>
 
@@ -230,7 +228,7 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 **マネジメントコンソールから設定を行います。**
 
-**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**
+**画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/1.png)
 
@@ -252,7 +250,9 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 ![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/modify/src/AWSIoT/5.png)
 
 画像のような画面になるので、各項目の設定を行います。
-名前・・・任意（ここでは「myRaspberryPi3」としました。）
+
+* 名前・・・任意（ここでは「myRaspberryPi3」としました。）
+
 その他の項目の値の変更は不要です。
 名前を入力したら、一番右下の「次へ」をクリックします。<br><br><br>
 
@@ -394,6 +394,8 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 `cd hands-on_alexa-becorerobo/RaspberryPi/`
 
 `sudo pip3 install -r requirements.txt`
+<br><br><br>
+
 
 ## 証明書の設置
 ダウンロードした証明書や鍵を設置します。
@@ -409,6 +411,8 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 プライベートキー
 
 `vi /home/pi/private.pem.key`
+<br><br><br>
+
 
 ## プログラムの設置
 ラズベリーパイ上でAWSIoTからMQTTデータを受信し、びーこあロボをBLEで操作するプログラムを設置します。
@@ -436,6 +440,8 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 `sudo sh -c "echo 'ENDPOINT=xxxxxxxxxx.iot.ap-northeast-1.amazonaws.com' >> /etc/default/iot-bcore"`
 
 `sudo sh -c "echo 'ENDPOINT=a2ajn6x7jj3xoz.iot.ap-northeast-1.amazonaws.com' >> /etc/default/iot-bcore"`
+<br><br><br>
+
 
 ## 自動起動の設定
 
@@ -468,7 +474,9 @@ WantedBy=network.target network-online.target rsyslog.service
 
 `sudo raspi-config`
 
-"3 Boot Options" ->   "Wait for Network at Boot" -> " Would you like boot to wait until a network connection is established?   [YES]" -> "OK" -> Finish
+`"3 Boot Options" ->   "Wait for Network at Boot" -> " Would you like boot to wait until a network connection is established?   [YES]" -> "OK" -> Finish`
+<br><br><br>
+
 
 プログラムを自動起動するように設定します。
 
@@ -501,7 +509,7 @@ WantedBy=network.target network-online.target rsyslog.service
 
 
 
-
+<br><br><br>
 
 
 
@@ -513,12 +521,14 @@ WantedBy=network.target network-online.target rsyslog.service
 **ターミナル(mac)やteratermなど(windows)から操作します。**
 
 ラズベリーパイにSSH接続します。
-* コマンド : `ssh pi@[IP]`
-* パスワード : `raspberry`
+* コマンド : `ssh pi@192.168.2.xx`
+* パスワード : `alexaday2018`
 
 sub_aws_iot_for_python.pyを置いたフォルダに移動し、以下のコマンドでファイルを実行します。
 
 コマンド : `python3 sub_aws_iot_for_python.py`
+<br><br><br>
+
 
 echoに「アレクサ、ロボットで◯◯して」と呼びかけます。
 「◯◯」には「sampleSpeech.txt」の日本語部分が入ります。
@@ -527,7 +537,7 @@ echoに「アレクサ、ロボットで◯◯して」と呼びかけます。
 * 例2）アレクサ、ロボットでウィンクして。
 * 例3）アレクサ、ロボットで目を光らせて。
 
-命令によってロボットが動けば成功です。
+命令によってロボットが動けば成功です。<br><br><br>
 
 
 # bcoreモジュールの操作について
