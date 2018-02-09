@@ -366,90 +366,77 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 # ラズベリーパイの設定
 
 ## 初期設定(事前準備済み)
-* wifiの設定
-* SSH/VNC有効
-* piのパスワード変更
-* タイムゾーンの変更
-* staticIPの設定
+- wifiおよびスタティックIPの設定
+- SSH/VNC有効化
+- piユーザーのパスワード変更
+- タイムゾーンの変更
 
-=>ここまでは事前に設定済み<br><br><br>
-
-
-## sshでログイン
-お手元のラズベリーパイへログインします。
-
-* ユーザー名：pi
-* 接続先：192.168.2.xx
-* パスワード：alexaday2018
-
-で接続します。<br><br><br>
+## ログイン情報
+お手元のRaspberry PiへSSHでログインします。
+- ユーザー名：pi
+- 接続先：192.168.2.xx
+- パスワード：alexaday2018
 
 ## 必要パッケージのインストール
-ラズベリーパイで使用するパッケージ、pythonモジュールをインストールします。
+Raspberry Piで使用するパッケージ、Pythonモジュールをインストールします。
 
-`sudo apt-get install sleepenh`
-
-`git clone https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo.git`
-
-`cd hands-on_alexa-becorerobo/RaspberryPi/`
-
-`sudo pip3 install -r requirements.txt`
-<br><br><br>
+```
+sudo apt-get install sleepenh
+git clone https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo.git
+cd hands-on_alexa-becorerobo/RaspberryPi/
+sudo pip3 install -r requirements.txt
+```
 
 
 ## 証明書の設置
 ダウンロードした証明書や鍵を設置します。
 
+```
 ルート証明書
-
-`vi /home/pi/root-CA.crt`
+vi /home/pi/root-CA.crt
 
 証明書
-
-`vi /home/pi/certificate.pem.crt`
+vi /home/pi/certificate.pem.crt
 
 プライベートキー
-
-`vi /home/pi/private.pem.key`
-<br><br><br>
-
+vi /home/pi/private.pem.key
+```
 
 ## プログラムの設置
-ラズベリーパイ上でAWSIoTからMQTTデータを受信し、びーこあロボをBLEで操作するプログラムを設置します。
+Raspberry Pi上でAWSIoTからMQTTデータを受信し、びーこあロボをBLEで操作するプログラムを設置します。
 
-`cd`
+```
+cd
+mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/motion.bash .
+mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/iot-bcore.py .
 
-`mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/motion.bash .`
+chmod 755 /home/pi/motion.bash
+chmod 755 /home/pi/iot-bcore.py
 
-`mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/iot-bcore.py .`
+cat /home/pi/motion.bash
+cat /home/pi/iot-bcore.py
+```
 
-`chmod 755 /home/pi/motion.bash`
+#### ご自身のびーこあロボのMACアドレスを入力してください
 
-`chmod 755 /home/pi/iot-bcore.py`
+```
+sudo sh -c "echo 'BCORE_MAC=xx:xx:xx:xx:xx:xx' >> /etc/default/iot-bcore"
+```
 
-`cat /home/pi/motion.bash`
+#### ご自身のAWS IoTの接続先を入力してください
 
-`cat /home/pi/iot-bcore.py`
-
-### ご自身のびーこあロボのMACアドレスを入力してください
-`sudo sh -c "echo 'BCORE_MAC=xx:xx:xx:xx:xx:xx' >> /etc/default/iot-bcore"`
-
-`sudo sh -c "echo 'BCORE_MAC=88:6B:0F:27:0A:CA' >> /etc/default/iot-bcore"`
-
-### ご自身のAWS IoTの接続先を入力してください
-`sudo sh -c "echo 'ENDPOINT=xxxxxxxxxx.iot.ap-northeast-1.amazonaws.com' >> /etc/default/iot-bcore"`
-
-`sudo sh -c "echo 'ENDPOINT=a2ajn6x7jj3xoz.iot.ap-northeast-1.amazonaws.com' >> /etc/default/iot-bcore"`
-<br><br><br>
-
+```
+sudo sh -c "echo 'ENDPOINT=xxxxxxxxxx.iot.ap-northeast-1.amazonaws.com' >> /etc/default/iot-bcore"
+```
 
 ## 自動起動の設定
 
-`sudo mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/alexa-robo.service /etc/systemd/system/alexa-robo.service`
+OSが起動した際に自動的にプログラムが起動するように設定します。
 
-`cat /etc/systemd/system/alexa-robo.service`
-
----
+```
+sudo mv /home/pi/hands-on_alexa-becorerobo/RaspberryPi/alexa-robo.service /etc/systemd/system/alexa-robo.service
+cat /etc/systemd/system/alexa-robo.service
+----
 [Unit]
 Description = Auto Run Alexa-Robo
 After=network.target network-online.target rsyslog.service
@@ -461,84 +448,66 @@ EnvironmentFile=/home/pi/iot-bcore
 
 [Install]
 WantedBy=network.target network-online.target rsyslog.service
+-------
 
----
-
-
-
-
-
-
+```
 
 ネットワーク起動後にサービスを起動するようにします。
 
-`sudo raspi-config`
+```
+sudo raspi-config
+-> "3 Boot Options" 
+-> "Wait for Network at Boot" 
+-> " Would you like boot to wait until a network connection is established?   [YES]" 
+-> "OK" 
+-> Finish
+```
 
-`"3 Boot Options" ->   "Wait for Network at Boot" -> " Would you like boot to wait until a network connection is established?   [YES]" -> "OK" -> Finish`
-<br><br><br>
+プログラムを自動起動するように設定して再起動を行います。
 
+```
+sudo systemctl enable systemd-networkd
+sudo systemctl enable systemd-networkd-wait-online
+sudo systemctl daemon-reload
+sudo systemctl start alexa-robo
+sudo systemctl enable alexa-robo
 
-プログラムを自動起動するように設定します。
+sudo reboot
+```
 
-`sudo systemctl enable systemd-networkd`
+再起動後に再度SSHで接続し、プログラムが起動されているか確認します。
+active (running)となっていれば自動起動に成功しています。
 
-`sudo systemctl enable systemd-networkd-wait-online`
-
-`sudo systemctl daemon-reload`
-
-`sudo systemctl start alexa-robo`
-
-`sudo systemctl enable alexa-robo`
-
-`sudo reboot`
-
-`sudo systemctl status alexa-robo.service -l`
-
----
+```
+sudo systemctl status alexa-robo.service -l
+------
 ● alexa-robo.service - Auto Run Alexa-Robo
    Loaded: loaded (/etc/systemd/system/alexa-robo.service; enabled)
    Active: active (running) since Wed 2018-02-07 18:01:57 JST; 3min 44s ago
 :
+------
+```
 
----
-
-=>再起動後にactive (running)となっていれば自動起動に成功しています。<br><br><br>
-
-
-# echoの設定
+これで、Raspberry Piの設定は完了です。
 
 
+## Echo dotセットアップ
 
-<br><br><br>
+以下のページを参考にEcho Dotのセットアップを行なってください。
+https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201994280
 
+## スキルの有効化
+Alexaアプリからスキル=>有効なスキル=>DEVスキルに作成したスキルが表示されて、スキルが有効になっていれば、利用することが可能な状態です。
 
-
-
-
-
-# 実行
-
-**ターミナル(mac)やteratermなど(windows)から操作します。**
-
-ラズベリーパイにSSH接続します。
-* コマンド : `ssh pi@192.168.2.xx`
-* パスワード : `alexaday2018`
-
-sub_aws_iot_for_python.pyを置いたフォルダに移動し、以下のコマンドでファイルを実行します。
-
-コマンド : `python3 sub_aws_iot_for_python.py`
-<br><br><br>
-
-
-echoに「アレクサ、ロボットで◯◯して」と呼びかけます。
+## 動作テスト
+Echo Dotに「アレクサ、ロボットで◯◯して」と呼びかけます。
 「◯◯」には「sampleSpeech.txt」の日本語部分が入ります。
 
-* 例1）アレクサ、ロボットで前進して。
-* 例2）アレクサ、ロボットでウィンクして。
-* 例3）アレクサ、ロボットで目を光らせて。
+例1）アレクサ、ロボットで前進して。
+例2）アレクサ、ロボットでウィンクして。
+例3）アレクサ、ロボットで目を光らせて。
 
-命令によってロボットが動けば成功です。<br><br><br>
+命令によってロボットが動けば成功です。
 
-
-# bcoreモジュールの操作について
+## 参考)bcoreモジュールの操作について
 http://vagabondworks.jp/blog-entry-125.html
