@@ -13,7 +13,7 @@ Lambdaでの処理結果はAWSIoTを中継して実機であるRaspberryPiに届
 
 
 # 構成図
-![全体図](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/%E5%85%A8%E4%BD%93%E5%9B%B3.png)
+![全体図](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/%E5%85%A8%E4%BD%93%E5%9B%B3.png)
 
 <br><br><br>
 
@@ -23,17 +23,17 @@ Lambdaでの処理結果はAWSIoTを中継して実機であるRaspberryPiに届
 AWSマネジメントコンソールへのログインを行います。
 マネジメントコンソールではLambdaやAWSIoTなどAWSの各種サービスの設定等を行うことができます。<br><br><br>
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/1.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/1.png)
 
 以下のURLへアクセスし、右上の「コンソールへログイン」をクリックします。
 
 URL : https://aws.amazon.com/jp/<br><br><br>
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/2.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/2.png)
 
 アカウント情報を入力し、「サインイン」をクリックします。<br><br><br>
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/3.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/3.png)
 
 ログインが完了すると、画像のような画面になります。<br><br><br>
 
@@ -48,7 +48,7 @@ Alexaの設定を行うために、Developerコンソール（開発者コンソ
 そのためアカウントもAWSアカウントとは別にDeveloperアカウントというものが必要となります。<br><br><br>
 
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/4.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/4.png)
 
 ブラウザの上部から新規でタブを開き、以下のURLへアクセスします。
 
@@ -56,13 +56,13 @@ URL : https://developer.amazon.com/home.html
 
 アカウント情報を入力し、「ログイン」をクリックします。<br><br><br>
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/6.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/6.png)
 
 アカウントを持っていない場合は「AmazonDeveloperアカウントを作成」をクリックします。
 各項目を埋めたら「AmazonDeveloperアカウントを作成」をクリックします。
 その後も項目を入力し、アカウントを作成します。<br><br><br>
 
-![login](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/5.png)
+![login](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/5.png)
 
 ログインが完了すると、画像のような画面になります。<br><br><br>
 
@@ -73,17 +73,17 @@ URL : https://developer.amazon.com/home.html
 
 **Developerコンソールから設定を行います。**<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/1.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/1.png)
 
 Developerコンソールを開き、「Alexa」タブをクリックします。
 Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/2.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/2.png)
 
 右上の「新しいスキルを追加する」をクリックします。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/3.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/3.png)
 
 画像のような画面になるので、各項目を設定します。
 * スキルの種類・・・カスタム対話モデル
@@ -94,7 +94,7 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 を入力及び選択し、「保存する」をクリックします。
 その他の項目は変更不要です。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/4.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/4.png)
 
 保存されると画像のような画面になります。
 新たに表示された「アプリケーションID」を控えておきます。
@@ -110,15 +110,15 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 **画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/login/3.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/login/3.png)
 
 マネジメントコンソールを開き、「コンピューティング」から「Lambda」をクリックします。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/1.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/1.png)
 
 「関数の作成」をクリックします。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/2.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/2.png)
 
 作成画面に移るので、項目の設定を行います。
 * 関数の作成・・・「一から作成」にチェック
@@ -128,7 +128,7 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 を入力及び選択します。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/3.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/3.png)
 
 「カスタムロールの作成」を選択した時点で、新しくタブが開かれ、画像のような画面になります。
 * IAMロール・・・新しいIAMロールの作成
@@ -136,7 +136,7 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 を入力及び選択し、「許可」をクリックします。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/4.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/4.png)
 
 「許可」をクリックするとタブが閉じられ、Lambda関数の作成画面に戻ります。
 「ロール」が「既存のロールを選択」が選ばれた状態になっています。
@@ -144,24 +144,24 @@ Alexa Skill Kitの「始める」をクリックします。<br><br><br>
 
 と、直前に作成したIAMロールを選択し、右下の「関数の作成」をクリックします。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/6.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/6.png)
 
 完了すると、Lambdaの設定画面へと移ります。
 Designer内の「トリガーの追加」から「Alexa Skill Kit」をクリックし、トリガーを追加します。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/7.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/7.png)
 
 下にスクロールすると、「トリガーの設定」フィールドがあります。
 スキルID検証・・・・・・有効（推奨）
 アプリケーションID・・・Alexaの設定時に控えたアプリケーションID
 を入力及び選択したら、右下の「追加」をクリックします。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/8.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/8.png)
 
 追加されると画像のような画面になります。
 Designer内のLambda関数名をクリックし、さらに設定を進めていきます。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/9.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/9.png)
 
 下にスクロールすると、「関数コード」の設定フィールドがあります。
 「lambda_function.py」に記述されているコードを全て削除し、別紙の「lambda.py」の中身を全てコピー＆ペーストします。<br><br><br>
@@ -172,12 +172,12 @@ myAppID = ".........."
 ```
 <br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/10.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/10.png)
 
 念のためLambdaのスペックを上げておきたいので、さらに下にスクロールします。
 「基本設定」フィールドで、メモリを512MB、タイムアウトを10秒に変更します。<br><br><br>
 
-![lambda](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/lambda/11.png)
+![lambda](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/lambda/11.png)
 
 問題がなければ一番上までスクロールし、右上の「保存」をクリックします。
 保存が完了したら、保存ボタンの上にある「ARN」というテキストの「arn:aws:lambda:.....」を控えておきます。
@@ -192,16 +192,16 @@ myAppID = ".........."
 
 Lambdaの設定が完了したところで、再度Alexaの設定を進めていきます。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/5.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/5.png)
 
 Developerコンソールを開き、対話モデルの設定画面であることを確認します。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/7.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/7.png)
 
 「インテントスキーマ」には「intentSchema.txt」の中身を全てコピー＆ペーストします。
 インテントスキーマは、インテント等の情報をまとめたjson形式の設定項目です。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/6.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/6.png)
 
 「サンプル発話」には「sampleSpeech.txt」の中身を全てコピー＆ペーストします。
 サンプル発話は、どんな呼びかけがどのインテントと紐づいているのかを表しているものです。
@@ -210,7 +210,7 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 入力ができたら一番下までスクロールし、「次へ」をクリックします。<br><br><br>
 
-![alexa](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/alexa/8.png)
+![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/8.png)
 
 「サービスエンドポイントのタイプ」から「AWS LambdaのARN」をチェックします。
 
@@ -230,24 +230,24 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 **画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/1.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/1.png)
 
 マネジメントコンソールを開き、左上の「サービス」をクリックします。
 検索欄に「iot」と入力し、「AWS IoT」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/2.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/2.png)
 
 画像のような画面になるので、左のリストから「管理」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/3.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/3.png)
 
 IoTデバイスの登録を行うため、右上の「作成」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/4.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/4.png)
 
 「単一のモノを作成する」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/5.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/5.png)
 
 画像のような画面になるので、各項目の設定を行います。
 
@@ -256,11 +256,11 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 その他の項目の値の変更は不要です。
 名前を入力したら、一番右下の「次へ」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/6.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/6.png)
 
 証明書の作成をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/7.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/7.png)
 
 各種証明書や鍵のをダウンロードします。
 
@@ -281,18 +281,18 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 
 全て満たしたら「完了」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/8.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/8.png)
 
 完了すると、モノの一覧に追加されます。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/9.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/9.png)
 
 左のリストから「安全性」をクリックします。
 さらに下に現れる「ポリシー」をクリックします。
 「ポリシー」の一覧画面が表示されます。
 右上の「作成」からポリシーを追加します。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/10.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/10.png)
 
 画像のような画面になるので、各項目を入力していきます。
 * 名前・・・・・・・任意（ここでは「myRaspberryPi3-Pollicy」としました。）
@@ -302,31 +302,31 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 
 問題なければ右下の「作成」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/11.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/11.png)
 
 完了すると、一覧画面に作成したものが追加されます。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/12.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/12.png)
 
 左のリストの「安全性」から「証明書」をクリックし、一覧から先ほど作成した証明書をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/13.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/13.png)
 
 画面上部の右寄りに「アクション▼」という項目があるので、クリックし、「ポリシーのアタッチ」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/14.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/14.png)
 
 画像のようなウィンドウが現れるので、先ほど作成したポリシーにチェックを入れ、「アタッチ」をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/15.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/15.png)
 
 リストから「ポリシー」をクリックすると、作成したポリシーが紐づけられていることが確認できます。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/16.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/16.png)
 
 リストから「モノ」をクリックし、紐づいているモノ(myRaspberryPi3)をクリックします。<br><br><br>
 
-![awsiot](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/17.png)
+![awsiot](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/17.png)
 
 リストから「操作」をクリックすると、画像のような画面になります。
 エンドポイントである「〜〜〜〜〜.iot.ap-northeast-1.amazonaws.com」を控えておきます。
@@ -342,21 +342,21 @@ IoTデバイスの登録を行うため、右上の「作成」をクリック�
 
 **画面最上部右側のリージョンが「東京」になっているか確認しましょう。**<br><br><br>
 
-![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/19.png)
+![iam](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/19.png)
 
 左上の「サービス」をクリックし、検索欄に「iam」と入力します。
 下に表示される「IAM」をクリックします。
 （「セキュリティ、アイデンティティ、コンプライアンス」以下にも「IAM」という項目をクリックしてもOKです。）<br><br><br>
 
-![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/20.png)
+![iam](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/20.png)
 
 左のリストから「ロール」を選択し、「alexaday2018_workshop」をクリックします。<br><br><br>
 
-![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/21.png)
+![iam](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/21.png)
 
 画像のような画面になるので、「ポリシーのアタッチ」をクリックします。<br><br><br>
 
-![iam](https://github.com/sugo-shota/hands-on_alexa-becorerobo/blob/mod/src/AWSIoT/22.png)
+![iam](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/AWSIoT/22.png)
 
 検索欄に「iot」と入力し絞り込みを行います。
 「AWSIoTFullAccess」にチェックを入れ、右下の「ポリシーのアタッチ」をクリックします。<br><br><br>
