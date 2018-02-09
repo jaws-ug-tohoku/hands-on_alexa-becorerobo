@@ -198,12 +198,14 @@ Developerコンソールを開き、対話モデルの設定画面であるこ�
 
 ![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/7.png)
 
-「インテントスキーマ」には「intentSchema.txt」の中身を全てコピー＆ペーストします。
+「インテントスキーマ」には「[intentSchema.txt](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/Alexa/intentSchema.txt)」の中身を全てコピー＆ペーストします。（intentSchema.txtはgithub上のAlexaフォルダ内にあります。）
+
 インテントスキーマは、インテント等の情報をまとめたjson形式の設定項目です。<br><br><br>
 
 ![alexa](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/src/alexa/6.png)
 
-「サンプル発話」には「sampleSpeech.txt」の中身を全てコピー＆ペーストします。
+「サンプル発話」には「[sampleSpeech.txt](https://github.com/jaws-ug-tohoku/hands-on_alexa-becorerobo/blob/master/Alexa/sampleSpeech.txt)」の中身を全てコピー＆ペーストします。（sampleSpeech.txtはgithub上のAlexaフォルダ内にあります。）
+
 サンプル発話は、どんな呼びかけがどのインテントと紐づいているのかを表しているものです。
 
 その他の項目は変更不要です。
