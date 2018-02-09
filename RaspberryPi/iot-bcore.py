@@ -4,7 +4,6 @@
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import os
 
-
 class AwsIotClient:
     # Initialize
     def __init__(self):
@@ -29,8 +28,8 @@ class AwsIotClient:
             self.privateKeyPath,
             self.certificatePath
         )
-        self.myAWSIoTMQTTClient.configureConnectDisconnectTimeout(30)  # 30 sec
-        self.myAWSIoTMQTTClient.configureMQTTOperationTimeout(30)  # 30 sec
+        self.myAWSIoTMQTTClient.configureConnectDisconnectTimeout(30)
+        self.myAWSIoTMQTTClient.configureMQTTOperationTimeout(30)
         self.myAWSIoTMQTTClient.configureAutoReconnectBackoffTime(1, 128, 20)
 
     # Connect and subscribe to AWS IoT
@@ -75,7 +74,6 @@ class AwsIotClient:
     def subscribe(self):
         while True:
             self.myAWSIoTMQTTClient.subscribe(self.topic, 1, self.customCallback)
-
 
 if __name__ == '__main__':
     myAWSIoTMQTTClient = AwsIotClient()
